@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".view.activities.DetailOfTheMatch"
+                android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cdOverviewMatchHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardElevation="4dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/tvFavoriteMatchDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/matchDate"
+                            android:textAlignment="center"/>
+
+                    <LinearLayout
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        <ImageView
+                                android:id="@+id/ivFavoriteHomeTeamBadge"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_margin="14dp"
+                                android:src="@drawable/img_blank"
+                                android:layout_gravity="center_horizontal"/>
+
+                        <TextView
+                                android:id="@+id/tvFavoriteHomeTeamName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="14dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="14dp"
+                                android:text="@string/homeTeam"
+                                android:textAlignment="center"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                        <TextView
+                                android:id="@+id/tvFavoriteHomeTeamScore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:textSize="40dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:text="@string/emptyString"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textSize="20dp"
+                                android:text="-"/>
+
+                        <TextView
+                                android:id="@+id/tvFavoriteAwayTeamScore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:textSize="40dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:text="@string/emptyString"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_alignParentEnd="true">
+
+                        <ImageView
+                                android:id="@+id/ivFavoriteAwayTeamBadge"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_margin="14dp"
+                                android:src="@drawable/img_blank"
+                                android:layout_gravity="center_horizontal"/>
+
+                        <TextView
+                                android:id="@+id/tvFavoriteAwayTeamName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="14dp"
+                                android:layout_marginBottom="14dp"
+                                android:text="@string/awayTeam"
+                                android:textAlignment="center"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Match Overview"
+                    android:textSize="18dp"
+                    android:textAlignment="center"/>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardElevation="4dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/tvFavoriteHomeTeamShots"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:paddingStart="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvNumberOfTeamShots"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Shots"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvFavoriteAwayTeamShots"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:paddingEnd="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:textAlignment="textEnd"
+                            android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardElevation="4dp">
+
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/tvFavoriteHomeGoalMakers"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:paddingStart="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="-"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvNumberOfGoalMakers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Goal Maker"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvFavoriteAwayGoalMakers"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:paddingEnd="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:textAlignment="textEnd"
+                            android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardElevation="4dp">
+
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/tvFavoriteHomeTeamRedCards"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:paddingStart="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvNumberOfTeamRedCards"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Red Cards"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvFavoriteAwayTeamRedCards"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:paddingEnd="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:textAlignment="textEnd"
+                            android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardElevation="4dp">
+
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/tvFavoriteHomeTeamYellowCards"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:paddingStart="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvNumberOfTeamYellowCards"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Yellow Cards"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvFavoriteAwayTeamYellowCards"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:paddingEnd="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:textAlignment="textEnd"
+                            android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:cardElevation="4dp">
+
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/tvFavoriteHomeTeamSubtitutePlayer"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:paddingStart="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvNumberOfTeamSubtitutePlayer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Subtitute"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_centerInParent="true"/>
+
+                    <TextView
+                            android:id="@+id/tvFavoriteAwayTeamSubtitutePlayer"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:paddingEnd="24dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/emptyString"
+                            android:textAlignment="textEnd"
+                            android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <ProgressBar
+                android:id="@+id/pbProgressDetailFavoriteActivity"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+</ScrollView>
