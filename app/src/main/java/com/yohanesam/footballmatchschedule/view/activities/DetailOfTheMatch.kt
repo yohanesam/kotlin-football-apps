@@ -116,6 +116,7 @@ class DetailOfTheMatch : AppCompatActivity(), MatchView, TeamView {
     }
 
     override fun showResult(data: List<Match>?) {
+
         val listOfMatchData = Match(
             data?.get(0)?.id,
             data?.get(0)?.idEvent ?: "-",

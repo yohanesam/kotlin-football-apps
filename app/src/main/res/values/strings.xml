@@ -11,4 +11,12 @@
     <string name="match">Matches</string>
     <string name="add_to_favorite">Add to Favorite</string>
 
+    <string-array name="homeSpinnerMenu">
+        <item>England Premier League</item>
+        <item>La Liga Premier League</item>
+        <item>Serie A</item>
+        <item>Bundesliga</item>
+        <item>A</item>
+    </string-array>
+
 </resources>

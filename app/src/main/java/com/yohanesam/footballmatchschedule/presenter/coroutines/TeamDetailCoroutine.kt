@@ -5,9 +5,9 @@ import com.yohanesam.footballmatchschedule.model.responsesdata.TeamJSONArray
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.apis.SportAPI
 import com.yohanesam.footballmatchschedule.view.interfaces.TeamView
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.async
-import org.jetbrains.anko.coroutines.experimental.bg
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class TeamDetailCoroutine(
     private val view: TeamView,
@@ -19,22 +19,18 @@ class TeamDetailCoroutine(
 
         view.isLoad()
 
-        async(UI) {
-            val homeTeamData = bg {
-                gson.fromJson(
-                    apiRepository.doRequest(SportAPI.getSelectedTeam(idHomeTeam)),
+        GlobalScope.launch(Dispatchers.Main) {
+            val homeTeamData = gson.fromJson(
+                    apiRepository.doRequest(SportAPI.getSelectedTeam(idHomeTeam)).await(),
+                    TeamJSONArray::class.java
+            )
+
+            val awayTeamData = gson.fromJson(
+                    apiRepository.doRequest(SportAPI.getSelectedTeam(idAwayTeam)).await(),
                     TeamJSONArray::class.java
                 )
-            }
 
-            val awayTeamData = bg {
-                gson.fromJson(
-                    apiRepository.doRequest(SportAPI.getSelectedTeam(idAwayTeam)),
-                    TeamJSONArray::class.java
-                )
-            }
-
-            view.showTeamResult(homeTeamData.await().jsonArrayTeamResult, awayTeamData.await().jsonArrayTeamResult)
+            view.showTeamResult(homeTeamData.jsonArrayTeamResult, awayTeamData.jsonArrayTeamResult)
             view.stopLoad()
         }
 

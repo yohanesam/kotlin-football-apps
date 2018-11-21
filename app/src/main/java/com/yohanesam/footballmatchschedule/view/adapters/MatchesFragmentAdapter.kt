@@ -1,10 +1,10 @@
-package com.yohanesam.footballmatchschedule.view.Adapter
+package com.yohanesam.footballmatchschedule.view.adapters
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.yohanesam.footballmatchschedule.view.Fragment.LastMatchFragment
-import com.yohanesam.footballmatchschedule.view.Fragment.NextMatchFragment
+import com.yohanesam.footballmatchschedule.view.fragments.LastMatchFragment
+import com.yohanesam.footballmatchschedule.view.fragments.NextMatchFragment
 
 class MatchesFragmentAdapter(fragMan: FragmentManager) : FragmentPagerAdapter(fragMan) {
 

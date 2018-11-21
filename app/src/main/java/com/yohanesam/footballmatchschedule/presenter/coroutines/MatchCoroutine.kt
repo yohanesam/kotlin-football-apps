@@ -1,14 +1,13 @@
 package com.yohanesam.footballmatchschedule.presenter.coroutines
 
-import android.util.Log
 import com.google.gson.Gson
 import com.yohanesam.footballmatchschedule.model.responsesdata.MatchJSONArray
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.apis.SportAPI
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.async
-import org.jetbrains.anko.coroutines.experimental.bg
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MatchCoroutine(
     private val view: MatchView,
@@ -16,33 +15,30 @@ class MatchCoroutine(
     private val gson: Gson
 ) {
 
-    fun getMatchList(isNextMatch: Boolean): Unit {
+    fun getMatchList(isNextMatch: Boolean) {
 
         view.isLoad()
 
         if (!isNextMatch) {
-            async(UI) {
-                val data = bg {
-                    gson.fromJson(
-                        apiRepository.doRequest(SportAPI.getLastMatches()),
-                        MatchJSONArray::class.java
-                    )
-                }
+            GlobalScope.launch(Dispatchers.Main) {
+                val data = gson.fromJson(
+                    apiRepository.doRequest(SportAPI.getLastMatches()).await(),
+                    MatchJSONArray::class.java
+                )
 
-                Log.d("TAG", data.await().arrMatchesResult.toString())
-                view.showResult(data.await().arrMatchesResult)
+                view.showResult(data.arrMatchesResult)
                 view.stopLoad()
             }
-        } else {
-            async(UI) {
-                val data = bg {
-                    gson.fromJson(
-                        apiRepository.doRequest(SportAPI.getNextMatches()),
-                        MatchJSONArray::class.java
-                    )
-                }
+        }
 
-                view.showResult(data.await().arrMatchesResult)
+        else {
+            GlobalScope.launch(Dispatchers.Main) {
+                val data = gson.fromJson(
+                    apiRepository.doRequest(SportAPI.getNextMatches()).await(),
+                    MatchJSONArray::class.java
+                )
+
+                view.showResult(data.arrMatchesResult)
                 view.stopLoad()
             }
         }

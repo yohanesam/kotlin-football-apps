@@ -1,4 +1,4 @@
-package com.yohanesam.footballmatchschedule.view.Fragment
+package com.yohanesam.footballmatchschedule.view.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle

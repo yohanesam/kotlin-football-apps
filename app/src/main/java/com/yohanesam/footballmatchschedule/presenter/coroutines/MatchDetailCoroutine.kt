@@ -5,9 +5,9 @@ import com.yohanesam.footballmatchschedule.model.responsesdata.MatchJSONArray
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.apis.SportAPI
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.async
-import org.jetbrains.anko.coroutines.experimental.bg
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MatchDetailCoroutine(
     val view: MatchView,
@@ -18,18 +18,14 @@ class MatchDetailCoroutine(
     fun getSelectedMatch(matchId: String?) {
 
         view.isLoad()
+        GlobalScope.launch(Dispatchers.Main) {
+            val data = gson.fromJson(
+                apiRepository.doRequest(SportAPI.getSelectedMatch(matchId)).await(),
+                MatchJSONArray::class.java
+            )
 
-        async(UI) {
-            val data = bg {
-                gson.fromJson(
-                    apiRepository.doRequest(SportAPI.getSelectedMatch(matchId)),
-                    MatchJSONArray::class.java
-                )
-            }
-
-            view.showResult(data.await().arrMatchesResult)
+            view.showResult(data.arrMatchesResult)
             view.stopLoad()
-
         }
 
     }
