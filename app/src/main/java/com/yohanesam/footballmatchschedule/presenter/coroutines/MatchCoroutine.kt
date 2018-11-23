@@ -5,9 +5,8 @@ import com.yohanesam.footballmatchschedule.model.responsesdata.MatchJSONArray
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.apis.SportAPI
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class MatchCoroutine(
     private val view: MatchView,
@@ -15,32 +14,43 @@ class MatchCoroutine(
     private val gson: Gson
 ) {
 
-    fun getMatchList(isNextMatch: Boolean) {
+    fun getMatchList(isNextMatch: Boolean, idLeague: String?) {
 
         view.isLoad()
 
         if (!isNextMatch) {
-            GlobalScope.launch(Dispatchers.Main) {
+
+            doAsync {
+
                 val data = gson.fromJson(
-                    apiRepository.doRequest(SportAPI.getLastMatches()).await(),
+                    apiRepository.doRequest(SportAPI.getLastMatches(idLeague)),
                     MatchJSONArray::class.java
                 )
 
-                view.showResult(data.arrMatchesResult)
-                view.stopLoad()
+                uiThread {
+                    view.showResult(data.arrMatchesResult)
+                    view.stopLoad()
+                }
             }
+
         }
 
         else {
-            GlobalScope.launch(Dispatchers.Main) {
+
+            doAsync {
+
                 val data = gson.fromJson(
-                    apiRepository.doRequest(SportAPI.getNextMatches()).await(),
+                    apiRepository.doRequest(SportAPI.getNextMatches(idLeague)),
                     MatchJSONArray::class.java
                 )
 
-                view.showResult(data.arrMatchesResult)
-                view.stopLoad()
+                uiThread {
+                    view.showResult(data.arrMatchesResult)
+                    view.stopLoad()
+                }
             }
+
         }
     }
+
 }

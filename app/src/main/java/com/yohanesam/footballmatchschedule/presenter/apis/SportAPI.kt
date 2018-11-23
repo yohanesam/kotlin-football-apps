@@ -1,12 +1,13 @@
 package com.yohanesam.footballmatchschedule.presenter.apis
 
 object SportAPI {
-    fun getLastMatches(): String {
-        return "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4399"
+
+    fun getLastMatches(leagueId: String?): String {
+        return "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=$leagueId"
     }
 
-    fun getNextMatches(): String {
-        return "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4399"
+    fun getNextMatches(leagueId: String?): String {
+        return "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=$leagueId"
     }
 
     fun getSelectedMatch(matchId: String?): String {

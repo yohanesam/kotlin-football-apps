@@ -5,11 +5,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <Spinner
+            android:id="@+id/spHomeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="87dp"
+            android:paddingLeft="10dp"/>
+
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/srlMatchPullNavigateUpRefresh"
-            android:layout_marginTop="72dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@id/spHomeSpinner">
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvMatchRecycleView"
@@ -19,11 +26,5 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <!--<ProgressBar-->
-            <!--android:id="@+id/pbProgressLoading"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:visibility="visible"-->
-            <!--android:layout_centerInParent="true"/>-->
 
 </RelativeLayout>

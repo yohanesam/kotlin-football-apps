@@ -1,6 +1,5 @@
 package com.yohanesam.footballmatchschedule.view.fragments
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -16,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_matches.*
 class MatchesFragment: Fragment() {
 
     private lateinit var pagerAdapterMatches: MatchesFragmentAdapter
-//    private lateinit var spinnerArrayAdapter: ArrayAdapter<Any>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 

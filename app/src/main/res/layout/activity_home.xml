@@ -8,11 +8,6 @@
         android:layout_height="match_parent"
         tools:context=".view.activities.HomeActivity">
 
-    <Spinner
-            android:id="@+id/spHomeSpinnerMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/flMainContainer"/>
 
     <FrameLayout
             android:id="@+id/flMainContainer"
