@@ -6,9 +6,6 @@ import com.yohanesam.footballmatchschedule.model.responsesdata.TeamJSONArray
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.apis.SportAPI
 import com.yohanesam.footballmatchschedule.view.interfaces.TeamView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 

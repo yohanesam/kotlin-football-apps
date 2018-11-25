@@ -1,6 +1,6 @@
 package com.yohanesam.footballmatchschedule.presenter.apis
 
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.model.entites.Team
 import com.yohanesam.footballmatchschedule.model.responsesdata.MatchJSONArray
 import io.reactivex.Observable

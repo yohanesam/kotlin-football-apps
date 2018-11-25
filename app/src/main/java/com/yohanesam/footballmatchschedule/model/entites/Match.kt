@@ -1,4 +1,4 @@
-package com.yohanesam.footballmatchschedule.model.Entity
+package com.yohanesam.footballmatchschedule.model.entites
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

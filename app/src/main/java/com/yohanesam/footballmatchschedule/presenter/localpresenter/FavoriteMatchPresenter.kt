@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import android.view.View
 import com.yohanesam.footballmatchschedule.helper.database
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete

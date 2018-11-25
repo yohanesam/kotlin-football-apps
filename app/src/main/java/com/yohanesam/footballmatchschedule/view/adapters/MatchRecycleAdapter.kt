@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.R
 import kotlinx.android.synthetic.main.match_schedule_row.view.*
 

@@ -1,7 +1,7 @@
 package com.yohanesam.footballmatchschedule.model.responsesdata
 
 import com.google.gson.annotations.SerializedName
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 
 data class MatchJSONArray(
 

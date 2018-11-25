@@ -10,7 +10,7 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.yohanesam.footballmatchschedule.R
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.model.entites.Team
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.coroutines.TeamDetailCoroutine

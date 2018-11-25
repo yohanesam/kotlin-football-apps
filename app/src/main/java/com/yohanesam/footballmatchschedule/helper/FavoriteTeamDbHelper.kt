@@ -2,7 +2,7 @@ package com.yohanesam.footballmatchschedule.helper
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 import org.jetbrains.anko.db.*
 
 class FavoriteMatchDbHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteTeam.db") {

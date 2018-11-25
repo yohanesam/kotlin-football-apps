@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.yohanesam.footballmatchschedule.view.activities.DetailOfFavoriteMatch
 import com.yohanesam.footballmatchschedule.R
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.presenter.localpresenter.FavoriteMatchPresenter
 import com.yohanesam.footballmatchschedule.view.adapters.FavoriteRecycleAdapter
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView

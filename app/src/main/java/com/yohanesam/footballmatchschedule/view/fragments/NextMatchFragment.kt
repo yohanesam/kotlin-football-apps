@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.google.gson.Gson
-import com.yohanesam.footballmatchschedule.model.Entity.Match
+import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.coroutines.MatchCoroutine
 import com.yohanesam.footballmatchschedule.R
