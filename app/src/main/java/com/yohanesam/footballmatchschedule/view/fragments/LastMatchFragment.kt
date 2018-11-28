@@ -11,14 +11,14 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.google.gson.Gson
+import com.yohanesam.footballmatchschedule.R
 import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.coroutines.MatchCoroutine
-import com.yohanesam.footballmatchschedule.R
-import com.yohanesam.footballmatchschedule.view.activities.DetailOfTheMatch
 import com.yohanesam.footballmatchschedule.view.Adapter.MatchRecycleAdapter
+import com.yohanesam.footballmatchschedule.view.activities.DetailOfTheMatch
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
-import kotlinx.android.synthetic.main.match_fragment_activity.*
+import kotlinx.android.synthetic.main.last_match_fragment_activity.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
@@ -34,8 +34,8 @@ class LastMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
         super.onActivityCreated(savedInstanceState)
 
-        srlMatchPullNavigateUpRefresh.setOnRefreshListener(this)
-        srlMatchPullNavigateUpRefresh.setColorSchemeResources(
+        srlLastMatchPullNavigateUpRefresh.setOnRefreshListener(this)
+        srlLastMatchPullNavigateUpRefresh.setColorSchemeResources(
 
             android.R.color.holo_blue_dark,
             android.R.color.holo_green_dark,
@@ -46,13 +46,15 @@ class LastMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
         adapter = MatchRecycleAdapter(this.context!!, matches) {
             startActivity<DetailOfTheMatch>(
-                "ID_MATCH" to it.idEvent, "ID_HOME_TEAM" to it.idHomeTeam, "ID_AWAY_TEAM" to it.idAwayTeam, "EVENT" to it
+                "ID_MATCH" to it.idEvent,
+                "ID_HOME_TEAM" to it.idHomeTeam,
+                "ID_AWAY_TEAM" to it.idAwayTeam,
+                "EVENT" to it
             )
         }
 
-        rvMatchRecycleView.layoutManager = LinearLayoutManager(activity)
-        rvMatchRecycleView.adapter = adapter
-
+        rvLastMatchRecycleView.layoutManager = LinearLayoutManager(activity)
+        rvLastMatchRecycleView.adapter = adapter
 
 
         val req = APIRepository()
@@ -65,21 +67,22 @@ class LastMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
     private fun setLeagueList() {
 
-        spinnerArrayAdapter = ArrayAdapter(context, R.layout.match_spinner_layout, resources.getStringArray(R.array.homeSpinnerMenu))
-        spHomeSpinner.adapter = spinnerArrayAdapter
+        spinnerArrayAdapter =
+                ArrayAdapter(context, R.layout.match_spinner_layout, resources.getStringArray(R.array.homeSpinnerMenu))
+        spLastMatchHomeSpinner.adapter = spinnerArrayAdapter
 
-        spHomeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spLastMatchHomeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
-                spHomeSpinner.setSelection(spinnerArrayAdapter.getPosition("England Premier League"))
+                spLastMatchHomeSpinner.setSelection(spinnerArrayAdapter.getPosition("England Premier League"))
                 matchCoroutine.getMatchList(false, "4328")
 
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
-                when(position) {
+                when (position) {
                     0 -> matchCoroutine.getMatchList(false, "4328")
                     1 -> matchCoroutine.getMatchList(false, "4335")
                     2 -> matchCoroutine.getMatchList(false, "4332")
@@ -96,7 +99,7 @@ class LastMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        return inflater.inflate(R.layout.match_fragment_activity, container, false)
+        return inflater.inflate(R.layout.last_match_fragment_activity, container, false)
 
     }
 
@@ -108,19 +111,19 @@ class LastMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
     override fun isLoad() {
 
-        srlMatchPullNavigateUpRefresh.isRefreshing = true
+        srlLastMatchPullNavigateUpRefresh.isRefreshing = true
 
     }
 
     override fun stopLoad() {
 
-        srlMatchPullNavigateUpRefresh.isRefreshing = false
+        srlLastMatchPullNavigateUpRefresh.isRefreshing = false
 
     }
 
     override fun showResult(data: List<Match>?) {
 
-        srlMatchPullNavigateUpRefresh.isRefreshing = false
+        srlLastMatchPullNavigateUpRefresh.isRefreshing = false
         matches.clear()
 
         data?.let {

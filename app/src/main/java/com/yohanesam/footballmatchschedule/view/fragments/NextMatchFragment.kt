@@ -11,17 +11,14 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.google.gson.Gson
+import com.yohanesam.footballmatchschedule.R
 import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.coroutines.MatchCoroutine
-import com.yohanesam.footballmatchschedule.R
-import com.yohanesam.footballmatchschedule.view.activities.DetailOfTheMatch
 import com.yohanesam.footballmatchschedule.view.Adapter.MatchRecycleAdapter
-import com.yohanesam.footballmatchschedule.view.activities.HomeActivity
+import com.yohanesam.footballmatchschedule.view.activities.DetailOfTheMatch
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.match_fragment_activity.*
-import org.jetbrains.anko.support.v4.act
+import kotlinx.android.synthetic.main.next_match_fragment_activity.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
@@ -37,8 +34,8 @@ class NextMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
         super.onActivityCreated(savedInstanceState)
 
-        srlMatchPullNavigateUpRefresh.setOnRefreshListener(this)
-        srlMatchPullNavigateUpRefresh.setColorSchemeResources(
+        srlNextMatchPullNavigateUpRefresh.setOnRefreshListener(this)
+        srlNextMatchPullNavigateUpRefresh.setColorSchemeResources(
 
             android.R.color.holo_blue_dark,
             android.R.color.holo_green_dark,
@@ -50,12 +47,15 @@ class NextMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
         adapter = MatchRecycleAdapter(this.context!!, matches) {
             startActivity<DetailOfTheMatch>(
-                "ID_MATCH" to it.idEvent, "ID_HOME_TEAM" to it.idHomeTeam, "ID_AWAY_TEAM" to it.idAwayTeam, "EVENT" to it
+                "ID_MATCH" to it.idEvent,
+                "ID_HOME_TEAM" to it.idHomeTeam,
+                "ID_AWAY_TEAM" to it.idAwayTeam,
+                "EVENT" to it
             )
         }
 
-        rvMatchRecycleView.layoutManager = LinearLayoutManager(activity)
-        rvMatchRecycleView.adapter = adapter
+        rvNextMatchRecycleView.layoutManager = LinearLayoutManager(activity)
+        rvNextMatchRecycleView.adapter = adapter
 
         val req = APIRepository()
         val gson = Gson()
@@ -67,25 +67,26 @@ class NextMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
     private fun setLeagueList() {
 
-        spinnerArrayAdapter = ArrayAdapter(context, R.layout.match_spinner_layout, resources.getStringArray(R.array.homeSpinnerMenu))
-        spHomeSpinner.adapter = spinnerArrayAdapter
+        spinnerArrayAdapter =
+                ArrayAdapter(context, R.layout.match_spinner_layout, resources.getStringArray(R.array.homeSpinnerMenu))
+        spNextMatchHomeSpinner.adapter = spinnerArrayAdapter
 
-        spHomeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spNextMatchHomeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
-                spHomeSpinner.setSelection(spinnerArrayAdapter.getPosition("England Premier League"))
-                matchCoroutine.getMatchList(false, "4328")
+                spNextMatchHomeSpinner.setSelection(spinnerArrayAdapter.getPosition("England Premier League"))
+                matchCoroutine.getMatchList(true, "4328")
 
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
-                when(position) {
-                    0 -> matchCoroutine.getMatchList(false, "4328")
-                    1 -> matchCoroutine.getMatchList(false, "4335")
-                    2 -> matchCoroutine.getMatchList(false, "4332")
-                    3 -> matchCoroutine.getMatchList(false, "4331")
+                when (position) {
+                    0 -> matchCoroutine.getMatchList(true, "4328")
+                    1 -> matchCoroutine.getMatchList(true, "4335")
+                    2 -> matchCoroutine.getMatchList(true, "4332")
+                    3 -> matchCoroutine.getMatchList(true, "4331")
                 }
 
 
@@ -97,7 +98,7 @@ class NextMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        return inflater.inflate(R.layout.match_fragment_activity, container, false)
+        return inflater.inflate(R.layout.next_match_fragment_activity, container, false)
 
     }
 
@@ -109,19 +110,19 @@ class NextMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
 
     override fun isLoad() {
 
-        srlMatchPullNavigateUpRefresh.isRefreshing = true
+        srlNextMatchPullNavigateUpRefresh.isRefreshing = true
 
     }
 
     override fun stopLoad() {
 
-        srlMatchPullNavigateUpRefresh.isRefreshing = false
+        srlNextMatchPullNavigateUpRefresh.isRefreshing = false
 
     }
 
     override fun showResult(data: List<Match>?) {
 
-        srlMatchPullNavigateUpRefresh.isRefreshing = false
+        srlNextMatchPullNavigateUpRefresh.isRefreshing = false
         matches.clear()
 
         data?.let {

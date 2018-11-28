@@ -33,9 +33,7 @@ class MatchCoroutine(
                 }
             }
 
-        }
-
-        else {
+        } else {
 
             doAsync {
 

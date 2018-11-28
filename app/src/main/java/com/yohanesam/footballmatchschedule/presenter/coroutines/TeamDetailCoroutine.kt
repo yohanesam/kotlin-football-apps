@@ -1,7 +1,6 @@
 package com.yohanesam.footballmatchschedule.presenter.coroutines
 
 import com.google.gson.Gson
-import com.yohanesam.footballmatchschedule.model.responsesdata.MatchJSONArray
 import com.yohanesam.footballmatchschedule.model.responsesdata.TeamJSONArray
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
 import com.yohanesam.footballmatchschedule.presenter.apis.SportAPI

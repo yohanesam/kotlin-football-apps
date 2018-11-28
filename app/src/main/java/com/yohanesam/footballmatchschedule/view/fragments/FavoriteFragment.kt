@@ -7,17 +7,17 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.yohanesam.footballmatchschedule.view.activities.DetailOfFavoriteMatch
 import com.yohanesam.footballmatchschedule.R
 import com.yohanesam.footballmatchschedule.model.entites.Match
 import com.yohanesam.footballmatchschedule.presenter.localpresenter.FavoriteMatchPresenter
+import com.yohanesam.footballmatchschedule.view.activities.DetailOfFavoriteMatch
 import com.yohanesam.footballmatchschedule.view.adapters.FavoriteRecycleAdapter
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
 import kotlinx.android.synthetic.main.favorite_fragment_activity.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
-class FavoriteFragment: Fragment(), MatchView, SwipeRefreshLayout.OnRefreshListener {
+class FavoriteFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var favoriteMatchPresenter: FavoriteMatchPresenter
     private lateinit var adapter: FavoriteRecycleAdapter
@@ -39,7 +39,10 @@ class FavoriteFragment: Fragment(), MatchView, SwipeRefreshLayout.OnRefreshListe
 
         adapter = FavoriteRecycleAdapter(this.context!!, matches) {
             startActivity<DetailOfFavoriteMatch>(
-                "ID_MATCH" to it.idEvent, "ID_HOME_TEAM" to it.idHomeTeam, "ID_AWAY_TEAM" to it.idAwayTeam, "EVENT" to it
+                "ID_MATCH" to it.idEvent,
+                "ID_HOME_TEAM" to it.idHomeTeam,
+                "ID_AWAY_TEAM" to it.idAwayTeam,
+                "EVENT" to it
             )
         }
 
