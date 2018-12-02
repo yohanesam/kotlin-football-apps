@@ -2,10 +2,9 @@ package com.yohanesam.footballmatchschedule.view.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.ArrayAdapter
 import com.yohanesam.footballmatchschedule.R
 import com.yohanesam.footballmatchschedule.R.id.*
-import com.yohanesam.footballmatchschedule.view.fragments.FavoriteFragment
+import com.yohanesam.footballmatchschedule.view.fragments.FavoriteMatchFragment
 import com.yohanesam.footballmatchschedule.view.fragments.MatchesFragment
 import com.yohanesam.footballmatchschedule.view.fragments.TeamsFragment
 import kotlinx.android.synthetic.main.activity_home.*
@@ -79,7 +78,7 @@ class HomeActivity : AppCompatActivity() {
 
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.flMainContainer, FavoriteFragment(), FavoriteFragment::class.java.simpleName)
+                .replace(R.id.flMainContainer, FavoriteMatchFragment(), FavoriteMatchFragment::class.java.simpleName)
                 .commit()
 
         }

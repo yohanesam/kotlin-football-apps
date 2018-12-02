@@ -26,6 +26,7 @@ data class Team(
 
         const val TEAM_ID = "TEAM_ID"
         const val TEAM_NAME = "TEAM_NAME"
+        const val TEAM_BADGE = "TEAM_BADGE"
         const val TEAM_FORMED_YEAR = "TEAM_FORMED_YEAR"
         const val TEAM_STADUIM = "TEAM_STADIUM"
         const val TEAM_DESCRIPTION = "TEAM_DESCRIPTION"

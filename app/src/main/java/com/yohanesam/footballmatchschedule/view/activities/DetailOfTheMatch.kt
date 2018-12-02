@@ -42,6 +42,9 @@ class DetailOfTheMatch : AppCompatActivity(), MatchView, TeamView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_of_the_match)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Match Detail"
+
         idMatch = intent.getStringExtra("ID_MATCH")
         idHomeTeam = intent.getStringExtra("ID_HOME_TEAM")
         idAwayTeam = intent.getStringExtra("ID_AWAY_TEAM")
@@ -59,7 +62,13 @@ class DetailOfTheMatch : AppCompatActivity(), MatchView, TeamView {
 
         isFavorite = favoriteMatchPresenter.isFavorite(this, data)
 
-        Log.d("ISFAVORITE", isFavorite.toString())
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+
+        onBackPressed()
+        return true
 
     }
 

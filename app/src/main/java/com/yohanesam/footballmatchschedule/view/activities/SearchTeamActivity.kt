@@ -11,6 +11,8 @@ import com.yohanesam.footballmatchschedule.presenter.coroutines.TeamCoroutine
 import com.yohanesam.footballmatchschedule.view.adapters.TeamRecycleAdapter
 import com.yohanesam.footballmatchschedule.view.interfaces.TeamView
 import kotlinx.android.synthetic.main.activity_search_team.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.toast
 
 class SearchTeamActivity : AppCompatActivity(), TeamView {
@@ -43,7 +45,7 @@ class SearchTeamActivity : AppCompatActivity(), TeamView {
         )
 
         adapter = TeamRecycleAdapter(this, teams) {
-
+            startActivity<DetailOfTeamActivity>("TEAM_ID" to it.idTeam)
         }
 
         rvSearchTeamRecycleView.layoutManager = LinearLayoutManager(this)

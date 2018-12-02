@@ -29,4 +29,13 @@ object SportAPI {
     fun getSearchedTeam(searchKey: String?): String {
         return "https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=$searchKey"
     }
+
+    fun getPlayersFromTeam(teamId: String?): String  {
+        return "https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=$teamId"
+    }
+
+    fun getSelectedPlayer(playerId: String?): String  {
+        return "https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=$playerId"
+    }
+
 }

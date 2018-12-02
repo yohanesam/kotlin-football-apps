@@ -65,7 +65,6 @@ class FavoriteMatchPresenter(
             context.database.use {
                 insert(
                     Match.FAVORITE_MATCH,
-                    Match.ID_EVENT to data.id,
                     Match.ID_EVENT to data.idEvent,
                     Match.DATE to data.dateEvent,
 

@@ -46,12 +46,7 @@ class TeamsFragment: Fragment(), TeamView, SwipeRefreshLayout.OnRefreshListener 
 
         adapter = TeamRecycleAdapter(this.context!!, teams) {
 
-            startActivity<DetailOfTeamActivity>(
-
-                "TEAM_NAME" to it.strTeam,
-                "TEAM_ID" to it.idTeam
-
-            )
+            startActivity<DetailOfTeamActivity>("TEAM_ID" to it.idTeam, "TEAM" to it)
 
         }
 

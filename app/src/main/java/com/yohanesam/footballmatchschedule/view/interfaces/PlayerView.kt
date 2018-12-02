@@ -6,6 +6,6 @@ interface PlayerView {
 
     fun isLoad()
     fun stopLoad()
-    fun showTeamResult(data: List<Player>?)
+    fun showPlayerResult(data: List<Player>?)
 
 }

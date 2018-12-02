@@ -129,7 +129,7 @@ class LastMatchFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshLis
         data?.let {
             matches.addAll(data)
             adapter.notifyDataSetChanged()
-        } ?: toast("data = $data")
+        } ?: toast("Error while showing the data. Please Refresh")
 
     }
 

@@ -2,9 +2,7 @@ package com.yohanesam.footballmatchschedule.view.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import com.google.gson.Gson
 import com.yohanesam.footballmatchschedule.R
 import com.yohanesam.footballmatchschedule.model.entites.Team
@@ -43,13 +41,9 @@ class TeamDetailDescriptionFragment: Fragment(), TeamView {
 
     override fun isLoad() {
 
-        pbProgressDetailTeamActivity.visibility = View.VISIBLE
-
     }
 
     override fun stopLoad() {
-
-        pbProgressDetailTeamActivity.visibility = View.GONE
 
     }
 

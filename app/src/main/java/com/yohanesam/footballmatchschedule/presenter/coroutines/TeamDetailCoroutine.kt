@@ -53,7 +53,7 @@ class TeamDetailCoroutine(
             )
 
             uiThread {
-                Log.d("DATA", data.jsonArrayTeamResult.toString())
+
                 view.showTeamResult(data.jsonArrayTeamResult)
                 view.stopLoad()
 
