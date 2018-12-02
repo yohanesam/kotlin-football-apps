@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+            android:id="@+id/rlTeam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="12dp">
+
+        <ImageView
+                android:id="@+id/ivTeamDetailBadge"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/img_blank"/>
+
+        <TextView
+                android:id="@+id/tvTeamName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/ivTeamDetailBadge"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/emptyString"/>
+
+        <TextView
+                android:id="@+id/tvTeamStadium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/ivTeamDetailBadge"
+                android:layout_below="@id/tvTeamName"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:textSize="14sp"
+                android:text="@string/emptyString"/>
+
+        <TextView
+                android:id="@+id/tvTeamFormed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/ivTeamDetailBadge"
+                android:layout_below="@id/tvTeamStadium"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:textSize="14sp"
+                android:text="@string/emptyString"/>
+
+    </RelativeLayout>
+
+
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlTeam">
+
+        <android.support.design.widget.TabLayout
+                android:id="@+id/tlTeamDetailTabLayout"
+                app:tabTextColor="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                app:tabMode="fixed"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:tabGravity="fill"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/vpTeamDetailViewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appBarLayout"/>
+
+
+    <ProgressBar
+            android:id="@+id/pbProgressDetailTeamActivity"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

@@ -5,21 +5,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <Spinner
-            android:id="@+id/spLastMatchHomeSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:paddingLeft="10dp"/>
-
     <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/srlLastMatchPullNavigateUpRefresh"
+            android:id="@+id/srlSearchMatchPullNavigateUpRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/spLastMatchHomeSpinner">
 
         <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvLastMatchRecycleView"
+                android:id="@+id/rvSearchMatchRecycleView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraint"/>

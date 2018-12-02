@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import com.yohanesam.footballmatchschedule.presenter.localpresenter.FavoriteMatc
 import com.yohanesam.footballmatchschedule.view.activities.DetailOfFavoriteMatch
 import com.yohanesam.footballmatchschedule.view.adapters.FavoriteRecycleAdapter
 import com.yohanesam.footballmatchschedule.view.interfaces.MatchView
-import kotlinx.android.synthetic.main.favorite_fragment_activity.*
+import kotlinx.android.synthetic.main.activity_favorites.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
@@ -56,7 +57,7 @@ class FavoriteFragment : Fragment(), MatchView, SwipeRefreshLayout.OnRefreshList
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        return inflater.inflate(R.layout.favorite_fragment_activity, container, false)
+        return inflater.inflate(R.layout.activity_favorites, container, false)
 
     }
 

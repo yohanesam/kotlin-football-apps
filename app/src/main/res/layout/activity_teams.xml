@@ -3,23 +3,25 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Spinner
-            android:id="@+id/spLastMatchHomeSpinner"
+            android:id="@+id/spTeamHomeSpinner"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:layout_below="@id/appBarLayout"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/srlLastMatchPullNavigateUpRefresh"
+            android:id="@+id/srlTeamPullNavigateUpRefresh"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/spLastMatchHomeSpinner">
+            android:layout_below="@id/spTeamHomeSpinner">
 
         <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvLastMatchRecycleView"
+                android:id="@+id/rvTeamRecycleView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraint"/>

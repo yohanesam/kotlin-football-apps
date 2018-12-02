@@ -55,7 +55,7 @@ class DetailOfTheMatch : AppCompatActivity(), MatchView, TeamView {
         favoriteMatchPresenter = FavoriteMatchPresenter(this, this)
 
         matchDetailCoroutine.getSelectedMatch(idMatch)
-        teamDetailCoroutine.getSelectedTeam(idHomeTeam, idAwayTeam)
+        teamDetailCoroutine.getSelectedTeamForMatch(idHomeTeam, idAwayTeam)
 
         isFavorite = favoriteMatchPresenter.isFavorite(this, data)
 
@@ -163,16 +163,19 @@ class DetailOfTheMatch : AppCompatActivity(), MatchView, TeamView {
 
     }
 
-    override fun showTeamResult(homeTeamData: List<Team>?, awayTeamData: List<Team>?) {
+    override fun showTeamResultForMatch(homeTeamData: List<Team>?, awayTeamData: List<Team>?) {
 
         homeTeamDataList = Team(
+            homeTeamData?.get(0)?.id,
             homeTeamData?.get(0)?.idTeam,
-            homeTeamData?.get(0)?.strTeamName,
+            homeTeamData?.get(0)?.strTeam,
             homeTeamData?.get(0)?.strTeamBadge
         )
+
         awayTeamDataList = Team(
+            homeTeamData?.get(0)?.id,
             awayTeamData?.get(0)?.idTeam,
-            awayTeamData?.get(0)?.strTeamName,
+            awayTeamData?.get(0)?.strTeam,
             awayTeamData?.get(0)?.strTeamBadge
         )
 
@@ -194,6 +197,10 @@ class DetailOfTheMatch : AppCompatActivity(), MatchView, TeamView {
             Log.d("FAVORITEFALSE", "removed from favorite")
 
         }
+
+    }
+
+    override fun showTeamResult(data: List<Team>?) {
 
     }
 

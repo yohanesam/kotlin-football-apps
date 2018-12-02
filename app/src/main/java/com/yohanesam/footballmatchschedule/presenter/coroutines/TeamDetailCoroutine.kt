@@ -1,5 +1,6 @@
 package com.yohanesam.footballmatchschedule.presenter.coroutines
 
+import android.util.Log
 import com.google.gson.Gson
 import com.yohanesam.footballmatchschedule.model.responsesdata.TeamJSONArray
 import com.yohanesam.footballmatchschedule.presenter.apis.APIRepository
@@ -14,7 +15,7 @@ class TeamDetailCoroutine(
     private val gson: Gson
 ) {
 
-    fun getSelectedTeam(idHomeTeam: String, idAwayTeam: String) {
+    fun getSelectedTeamForMatch(idHomeTeam: String, idAwayTeam: String) {
 
         view.isLoad()
 
@@ -31,9 +32,33 @@ class TeamDetailCoroutine(
             )
 
             uiThread {
-                view.showTeamResult(homeTeamData.jsonArrayTeamResult, awayTeamData.jsonArrayTeamResult)
+
+                view.showTeamResultForMatch(homeTeamData.jsonArrayTeamResult, awayTeamData.jsonArrayTeamResult)
                 view.stopLoad()
+
             }
+        }
+
+    }
+
+    fun getSelectedTeam(idTeam: String) {
+
+        view.isLoad()
+
+        doAsync {
+
+            val data = gson.fromJson(
+                apiRepository.doRequest(SportAPI.getSelectedTeam(idTeam)),
+                TeamJSONArray::class.java
+            )
+
+            uiThread {
+                Log.d("DATA", data.jsonArrayTeamResult.toString())
+                view.showTeamResult(data.jsonArrayTeamResult)
+                view.stopLoad()
+
+            }
+
         }
 
     }

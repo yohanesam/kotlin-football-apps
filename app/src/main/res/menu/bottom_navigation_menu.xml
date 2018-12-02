@@ -7,16 +7,25 @@
             android:id="@+id/matches"
             android:enabled="true"
             android:title="@string/match"
-            android:icon="@drawable/ic_matches"
+            android:icon="@drawable/ic_action_match"
             app:showAsAction="ifRoom"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"/>
 
 
     <item
+            android:id="@+id/teams"
+            android:enabled="true"
+            android:icon="@drawable/ic_action_teams"
+            android:title="@string/teams"
+            app:showAsAction="ifRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <item
             android:id="@+id/favorites"
             android:enabled="true"
-            android:icon="@drawable/ic_favorites"
+            android:icon="@drawable/ic_action_favorite"
             android:title="@string/favorites"
             app:showAsAction="ifRoom"
             android:layout_width="match_parent"

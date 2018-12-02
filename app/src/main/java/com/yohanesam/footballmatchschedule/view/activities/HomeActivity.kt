@@ -7,17 +7,14 @@ import com.yohanesam.footballmatchschedule.R
 import com.yohanesam.footballmatchschedule.R.id.*
 import com.yohanesam.footballmatchschedule.view.fragments.FavoriteFragment
 import com.yohanesam.footballmatchschedule.view.fragments.MatchesFragment
+import com.yohanesam.footballmatchschedule.view.fragments.TeamsFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var spinnerArrayAdapter: ArrayAdapter<String>
-    var value: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        setLeagueList()
 
 
         setFrameLayout(savedInstanceState)
@@ -29,9 +26,17 @@ class HomeActivity : AppCompatActivity() {
 
             when (item.itemId) {
 
-                matches -> { loadMatchesFragment(savedInstanceState) }
+                matches -> {
+                    loadMatchesFragment(savedInstanceState)
+                }
 
-                favorites -> { loadFavoritesFragment(savedInstanceState) }
+                teams -> {
+                    loadTeamsFragment(savedInstanceState)
+                }
+
+                favorites -> {
+                    loadFavoritesFragment(savedInstanceState)
+                }
 
             }
 
@@ -43,36 +48,16 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    fun setLeagueList()/*: String?*/ {
+    private fun loadTeamsFragment(savedInstanceState: Bundle?) {
 
-//        spinnerArrayAdapter = ArrayAdapter(this, R.layout.match_spinner_layout, resources.getStringArray(R.array.homeSpinnerMenu))
-//        spHomeSpinner.adapter = spinnerArrayAdapter
+        if (savedInstanceState == null) {
 
-//        spHomeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
-//                spHomeSpinner.setSelection(spinnerArrayAdapter.getPosition("England Premier League"))
-//                value = "4328"
-//
-//                Log.d("VALUE", "SINI BISA")
-//            }
-//
-//            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//
-//                when(position) {
-//                    0 -> value = "4328"
-//                    1 -> value = "4335"
-//                    2 -> value = "4332"
-//                    3 -> value = "4331"
-//                }
-//
-//                Log.d("VALUE", "SINI BISA JUGA")
-//
-//            }
-//
-//        }
-//
-//        return value
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.flMainContainer, TeamsFragment(), MatchesFragment::class.java.simpleName)
+                .commit()
+
+        }
 
     }
 

@@ -51,4 +51,22 @@ class MatchCoroutine(
         }
     }
 
+    fun getSearchedMatchList(searchedKey: String) {
+
+        view.isLoad()
+
+        doAsync {
+
+            val data = gson.fromJson(
+                apiRepository.doRequest(SportAPI.getSearchedMatches(searchedKey)),
+                MatchJSONArray::class.java
+            )
+
+            uiThread {
+                view.showResult(data.arrSearchedMatchesResult)
+                view.stopLoad()
+            }
+        }
+    }
+
 }

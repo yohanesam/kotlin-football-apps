@@ -9,6 +9,6 @@ data class MatchJSONArray(
     val arrMatchesResult: List<Match>? = null,
 
     @SerializedName("event")
-    val event: List<Match>? = null
+    val arrSearchedMatchesResult: List<Match>? = null
 
 )

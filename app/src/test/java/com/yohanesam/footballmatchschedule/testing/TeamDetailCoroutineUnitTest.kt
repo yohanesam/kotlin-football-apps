@@ -72,12 +72,12 @@ internal class TeamDetailCoroutineUnitTest {
 
             ).thenReturn(awayResponse)
 
-            teamDetailCoroutine.getSelectedTeam(idHomeTeam, idAwayTeam)
+            teamDetailCoroutine.getSelectedTeamForMatch(idHomeTeam, idAwayTeam)
 
             uiThread {
 
                 Mockito.verify(view).isLoad()
-                Mockito.verify(view).showTeamResult(homeTeam, awayTeam)
+                Mockito.verify(view).showTeamResultForMatch(homeTeam, awayTeam)
                 Mockito.verify(view).stopLoad()
 
             }

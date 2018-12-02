@@ -6,16 +6,28 @@
     <string name="scoreTeam">- Vs -</string>
     <string name="matchDate">1-1-2018</string>
     <string name="emptyString">-</string>
-    <string name="team">Team</string>
+    <string name="teams">Teams</string>
     <string name="favorites">Favorites</string>
     <string name="match">Matches</string>
     <string name="add_to_favorite">Add to Favorite</string>
+    <string name="team_search_ic">Search the Team</string>
+
+    <string name="match_england">English Premier League</string>
+    <string name="match_spanish">Spanish La Liga</string>
+    <string name="match_italy">Italy Serie A</string>
+    <string name="match_germany">Germany Bundesliga</string>
+
+    <string name="id_match_england">4328</string>
+    <string name="id_match_spanish">4335</string>
+    <string name="id_match_italy">4332</string>
+    <string name="id_match_germany">4331</string>
+
 
     <string-array name="homeSpinnerMenu">
-        <item>England Premier League</item>
-        <item>La Liga Premier League</item>
-        <item>Serie A</item>
-        <item>Bundesliga</item>
+        <item>English Premier League</item>
+        <item>Spanish La Liga</item>
+        <item>Italy Serie A</item>
+        <item>Germany Bundesliga</item>
     </string-array>
 
 </resources>

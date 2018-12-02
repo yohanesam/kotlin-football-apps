@@ -14,7 +14,19 @@ object SportAPI {
         return "https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id=$matchId"
     }
 
+    fun getSearchedMatches(searchKey: String): String {
+        return "https://www.thesportsdb.com/api/v1/json/1/searchevents.php?e=$searchKey"
+    }
+
+    fun getTeamsFromLeague(leagueName: String?): String {
+        return "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=$leagueName"
+    }
+
     fun getSelectedTeam(teamId: String?): String {
         return "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=$teamId"
+    }
+
+    fun getSearchedTeam(searchKey: String?): String {
+        return "https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=$searchKey"
     }
 }
